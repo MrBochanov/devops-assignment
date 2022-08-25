@@ -1,14 +1,8 @@
 FROM python:3.9
 
-RUN mkdir /app 
-COPY . /app
-#COPY pyproject.toml /app 
-
-WORKDIR /app
-
-#ENV PYTHONPATH=${PYTHONPATH}:${PWD} 
+COPY . /
 
 RUN pip install poetry
-RUN poetry install
+RUN POETRY_VIRTUALENVS_CREATE=false poetry install
 
-RUN poetry shell
+ENTRYPOINT ["./gunicorn.sh"]
