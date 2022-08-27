@@ -1,21 +1,21 @@
 releases:
   - name: dev 
-    chart: chart 
+    chart: helm 
     values: 
-      - values/dev/values.yaml
+      - farfordev.yaml
     labels:
       environment: dev  
 
   - name: stage 
-    chart: chart 
+    chart: helm 
     values: 
-      - values/stage/values.yaml
+      - farforstage.yaml
     labels:
       environment: stage    
 
   - name: prod 
-    chart: chart 
+    chart: helm 
     values: 
-      - values/prod/values.yaml
+      - farforprod.yaml
     labels:
       environment: prod             

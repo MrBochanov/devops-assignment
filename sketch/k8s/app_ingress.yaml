@@ -1,16 +1,16 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{ .Values.appName }}
+  name: app-ingress
 spec:
   rules:
-  - host: {{ .Values.appUrl }}
+  - host: farfordev.ru
     http:
       paths: 
         - path: /
           pathType: Prefix
           backend:
             service:
-              name: {{ .Values.appName }}
+              name: app-service
               port:
-                number: {{ .Values.servicePort }}
+                number: 80
